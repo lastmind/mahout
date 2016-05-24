@@ -556,10 +556,10 @@ public final class MongoDBDataModel implements DataModel {
       collectionMap = db.getCollection(mongoMapCollection);
       DBObject indexObj = new BasicDBObject();
       indexObj.put("element_id", 1);
-      collectionMap.ensureIndex(indexObj);
+      collectionMap.createIndex(indexObj);
       indexObj = new BasicDBObject();
       indexObj.put("long_value", 1);
-      collectionMap.ensureIndex(indexObj);
+      collectionMap.createIndex(indexObj);
       collectionMap.remove(new BasicDBObject());
       DBCursor cursor = collection.find();
       while (cursor.hasNext()) {
